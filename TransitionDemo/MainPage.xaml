@@ -6,8 +6,37 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
+    <!--
+        Demo made out of: 
+        Quickstart: Animating your UI using library animations (XAML)
+        https://msdn.microsoft.com/library/windows/apps/xaml/hh452703   
+        Shi, June 2016
+    -->
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Resources>
+                <Storyboard x:Name="myStoryboard">
+                    <FadeOutThemeAnimation TargetName="firstButton" Duration="2" />
+                </Storyboard>
+            </StackPanel.Resources>
+
+            <Button Name="firstButton" Content="Transitioning Button">
+                <Button.Transitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition/>
+                    </TransitionCollection>
+                </Button.Transitions>
+            </Button>
+            <Button Name="hideBtn" Click="hideBtn_Click">Hide
+                <Button.Transitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition/>
+                        <RepositionThemeTransition/>
+                    </TransitionCollection>
+                </Button.Transitions>
+            </Button>
+        </StackPanel>
+       
 
     </Grid>
 </Page>

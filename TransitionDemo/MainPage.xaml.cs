@@ -26,5 +26,12 @@ namespace TransitionDemo
         {
             this.InitializeComponent();
         }
+
+        private void hideBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var parent = VisualTreeHelper.GetParent(firstButton) as Panel;
+            // parent.Children.Remove(firstButton);
+            myStoryboard.Begin();
+        }
     }
 }
