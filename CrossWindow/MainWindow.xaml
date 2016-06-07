@@ -1,0 +1,24 @@
+﻿<Window x:Class="CrossWindow.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CrossWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid Name="rootGrid">
+        <StackPanel>
+            <ListView Name="studentsListView" ItemsSource="{Binding Students}" 
+                      SelectedItem="{Binding SelectedStudent, Mode=OneWayToSource}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Content="{Binding Name}"></Label>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <TextBox Name="textBox1" KeyUp="textBox1_KeyUp" Text="{Binding SelectedStudent.Name, Mode=TwoWay}"></TextBox>
+            <TextBox Text="{Binding SelectedItem.Name, ElementName=studentsListView}"></TextBox>
+            
+        </StackPanel>
+    </Grid>
+</Window>

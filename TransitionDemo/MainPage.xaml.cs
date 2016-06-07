@@ -30,8 +30,8 @@ namespace TransitionDemo
         private void hideBtn_Click(object sender, RoutedEventArgs e)
         {
             var parent = VisualTreeHelper.GetParent(firstButton) as Panel;
-            // parent.Children.Remove(firstButton);
-            myStoryboard.Begin();
+            parent.Children.Remove(firstButton);
+            // myStoryboard.Begin();
         }
     }
 }
